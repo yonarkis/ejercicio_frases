@@ -28,11 +28,24 @@ function _encontrarFrases() {
             sinEspacio = texto.replace(/ /g, "");
             matrizTexto = sinEspacio.split("");
             salida = [];
+
+            if (!(typeof arrayFrases == "undefined" || arrayFrases === null)) {
+              _context.next = 9;
+              break;
+            }
+
+            res.json({
+              msg: "El array de frases esta vacio"
+            });
+            _context.next = 34;
+            break;
+
+          case 9:
             j = 0;
 
-          case 6:
+          case 10:
             if (!(j < arrayFrases.length)) {
-              _context.next = 29;
+              _context.next = 33;
               break;
             }
 
@@ -41,9 +54,9 @@ function _encontrarFrases() {
             letrasUsadas = [];
             i = 0;
 
-          case 11:
+          case 15:
             if (!(i < matrizTexto.length)) {
-              _context.next = 25;
+              _context.next = 29;
               break;
             }
 
@@ -55,23 +68,23 @@ function _encontrarFrases() {
             }
 
             if (!(matrizFrases.length === 0)) {
-              _context.next = 21;
+              _context.next = 25;
               break;
             }
 
             letrasUsadas.push(index);
             salida.push(arrayFrases[j]);
-            return _context.abrupt("break", 25);
-
-          case 21:
-            return _context.abrupt("continue", 22);
-
-          case 22:
-            i++;
-            _context.next = 11;
-            break;
+            return _context.abrupt("break", 29);
 
           case 25:
+            return _context.abrupt("continue", 26);
+
+          case 26:
+            i++;
+            _context.next = 15;
+            break;
+
+          case 29:
             for (y = 0; y < letrasUsadas.length; y++) {
               letraUsada = letrasUsadas[y];
               indiceLetras = matrizTexto.indexOf(letraUsada);
@@ -81,20 +94,22 @@ function _encontrarFrases() {
               }
             }
 
-          case 26:
+          case 30:
             j++;
-            _context.next = 6;
+            _context.next = 10;
             break;
 
-          case 29:
+          case 33:
             res.json({
               data: salida
             });
-            _context.next = 36;
+
+          case 34:
+            _context.next = 40;
             break;
 
-          case 32:
-            _context.prev = 32;
+          case 36:
+            _context.prev = 36;
             _context.t0 = _context["catch"](1);
             console.log(_context.t0);
             res.status(500).json({
@@ -102,12 +117,12 @@ function _encontrarFrases() {
               data: {}
             });
 
-          case 36:
+          case 40:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[1, 32]]);
+    }, _callee, null, [[1, 36]]);
   }));
   return _encontrarFrases.apply(this, arguments);
 }
