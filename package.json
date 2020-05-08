@@ -1,0 +1,37 @@
+{
+  "name": "api-sequlize",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js --exec babel-node",
+    "build": "babel src --out-dir dist",
+    "start": "node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/polyfill": "^7.7.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-mysql-session": "^2.1.0",
+    "googleapis": "^39.2.0",
+    "jwt-simple": "^0.5.6",
+    "moment": "^2.24.0",
+    "morgan": "^1.9.1",
+    "mysql": "^2.17.1",
+    "mysql2": "^2.1.0",
+    "nodemailer": "^6.4.2",
+    "promise-mysql": "^4.1.1",
+    "sequelize": "^5.21.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/node": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "nodemon": "^2.0.2"
+  }
+}
